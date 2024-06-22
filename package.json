@@ -12,10 +12,7 @@
     "express",
     "tracker"
   ],
-  "author": {
-    "name": "TiagoPdaS",
-    "url": "https://github.com/TiagoPdaS"
-  },
+  "author": "TiagoPdaS (https://github.com/TiagoPdaS)",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.21",
