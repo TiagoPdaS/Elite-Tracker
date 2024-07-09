@@ -1,9 +1,17 @@
 import express from 'express';
+import { routes } from './routes';
+import { setupMongo } from './database';
 
 const app = express();
 
-app.get('/', (req,res) => {
-   return res.send('Hello World!');
-});
+setupMongo().then(() => {
+  app.use(express.json());
+  app.use(routes);
 
-app.listen(4000, () => console.log('🚀🚀 Server Running at Port 4000 !! 🚀🚀'));
+  app.listen(4000, () => {
+    console.log('🚀🚀 Server Running at Port 4000 !! 🚀🚀');
+  });
+})
+.catch((err) => {
+    console.error(err.message);
+});
