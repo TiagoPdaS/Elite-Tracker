@@ -1,13 +1,15 @@
 import { type Request, type Response } from "express";
+import { habitModel } from "../models/habit.model";
 
 export class HabitsController {
-    private readonly habits: any [] = [];
-
-    store = (req: Request, res: Response) : Response => {
+    store = async (req: Request, res: Response) : Promise<Response> => {
+        const { name } = req.body;
         
-            const { name } = req.body;
-            const newHabit = { name };
-            this.habits.push(newHabit);
+        const newHabit = await habitModel.create({
+            name,
+            completedDates: [],
+        });
+            
             return res.status(201).json(newHabit);
-        }
+        };
     }

@@ -7,12 +7,12 @@ export async function setupMongo() {
     }
     console.log('Connecting to database... ');
 
-    await mongoose.connect('mongodb://localhost:27017/elitetracker', {
+    await mongoose.connect('mongodb://localhost:27017/eliteTracker', {
         serverSelectionTimeoutMS:3500, //3.5 s
     });
-     console.log('Connected to database!');
+     console.log('🚀 Connected to database! 🚀');
 
   } catch {
-    throw new Error('Error connecting to database');
+    throw new Error(' ❌ Error connecting to database ❌');
   }
 }
